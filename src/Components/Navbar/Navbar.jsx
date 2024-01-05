@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="navbar pt-10">
                 <div className="navbar justify-between max-w-7xl mx-auto">
                     <div className="flex-1">
-                        <Link to={"/"} className="hover:text-gray-600 font-Ubuntu text-2xl">Pti.</Link>
+                        <Link to={"/"} className="hover:text-gray-700 font-Ubuntu text-2xl">Pti.</Link>
                     </div>
                     <div className="w-full">
                         <div className="mx-auto flex gap-3 ">
