@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Ubuntu: "Ubuntu",
+        Roboto: "Roboto",
+      },
+    },
   },
   plugins: [require("daisyui")],
 }
