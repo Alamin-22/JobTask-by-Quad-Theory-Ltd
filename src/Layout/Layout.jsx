@@ -3,9 +3,11 @@ import Navbar from "../Components/Navbar/Navbar";
 
 const Layout = () => {
     return (
-        <div>
+        <div className="bg-gray-200">
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className="max-w-7xl border-red-400 mx-auto font-Roboto">
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };

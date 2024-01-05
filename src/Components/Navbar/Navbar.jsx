@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { IoIosSearch } from "react-icons/io";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,30 +12,24 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-gray-300">
+            <div className="navbar pt-10">
                 <div className="navbar justify-between max-w-7xl mx-auto">
                     <div className="flex-1">
-                        <a className="btn btn-ghost font-Ubuntu text-2xl">Pti.</a>
+                        <Link to={"/"} className="hover:text-gray-600 font-Ubuntu text-2xl">Pti.</Link>
                     </div>
-                    <div className="w-full  border">
-                        <div className="mx-auto flex">
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                className="md:w-[500px] input input-bordered "
-                            />
+                    <div className="w-full">
+                        <div className="mx-auto flex gap-3 ">
+                            <div className="relative">
+                                <input type="text" placeholder="Search Food" className="pl-11 w-44 md:w-[500px] lg:w-[700px] input input-bordered" />
+                                <IoIosSearch className="text-orange-400 text-3xl absolute top-2.5 left-2.5" />
+                            </div>
                             <div>
-                                <div className="dropdown">
-                                    <div
-                                        tabIndex={0}
-                                        role="button"
-                                        className="btn"
-                                        onClick={handleArrow}
-                                    >
-                                        Menu {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn " onClick={handleArrow}>
+                                        Menu {isOpen ? <FaChevronUp className="text-orange-400" /> : <FaChevronDown className="text-orange-400" />}
                                     </div>
                                     {isOpen && (
-                                        <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                        <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-44 font-medium text-gray-600">
                                             <li><NavLink to={"/"} className={({ isActive, isPending }) =>
                                                 isPending ? "pending" : isActive ? "text-orange-500" : "hover:text-orange-500"
                                             } >Home</NavLink></li>
@@ -59,7 +54,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className="hidden md:block ">
                         {/* login */}
                         <div className="dropdown dropdown-end">
                             <div
