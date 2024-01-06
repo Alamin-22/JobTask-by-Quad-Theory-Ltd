@@ -51,6 +51,10 @@ const PopularItems = () => {
                         clickable: true,
                     }}
                     breakpoints={{
+                        350: { // Add this for phone devices
+                            slidesPerView: 3,
+                            spaceBetween: 0,
+                        },
                         640: {
                             slidesPerView: 2,
                             spaceBetween: 20,
@@ -63,6 +67,7 @@ const PopularItems = () => {
                             slidesPerView: 5,
                             spaceBetween: 50,
                         },
+                        
                     }}
                     modules={[Pagination, Navigation]}
                     className="mySwiper"
@@ -70,13 +75,12 @@ const PopularItems = () => {
                     {
                         PopularFood.map(items => <SwiperSlide key={items.Id}>
                             <div className='mb-6 px-3 md:px-0 cursor-pointer active:cursor-grabbing'>
-                                <img className='h-72 rounded-xl shadow-bottom-right object-cover ' src={items?.ImageUrl} alt={items?.Name} />
+                                <img className='h-52 md:h-72 w-full  rounded-xl shadow-bottom-right object-cover ' src={items?.ImageUrl} alt={items?.Name} />
                                 <p className='text-center text-lg text-gray-600 font-medium py-3'>{items?.Name}</p>
                             </div>
                         </SwiperSlide>)
 
                     }
-
 
                 </Swiper>
             </div>
