@@ -9,31 +9,31 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import "../PopularItems/Items.css"
+import "../Recommended/Recommended.css"
 
 // import required modules
 import { Navigation, Pagination } from 'swiper/modules';
 
 
-const PopularItems = () => {
+const Recommended = () => {
 
 
-    const [PopularFood, setPopularFood] = useState([]);
+    const [recommendedFood, setRecommendedFood] = useState([]);
 
 
     useEffect(() => {
         fetch("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
             .then(res => res.json())
-            .then(data => setPopularFood(data.Items.filter((popularFood) => popularFood.IsPopular)))
+            .then(data => setRecommendedFood(data.Items.filter((RecommendedFood) => RecommendedFood.IsRecommended)))
 
     }, [])
-    console.log("only popular food", PopularFood)
+    console.log("only Recommended food", recommendedFood)
 
     return (
         <div>
             <div className='my-24' >
                 <div className='my-5 px-3 flex items-center justify-between'>
-                    <p className='text-2xl font-medium'>Popular</p>
+                    <p className='text-2xl font-medium'>Recommended</p>
                     <div className='flex gap-3'>
                         <p className='text-xl text-orange-500 font-medium hover:text-orange-600 cursor-pointer'>AddMore</p>
                         <div className='text-xl space-x-2'>
@@ -77,7 +77,7 @@ const PopularItems = () => {
                     className="mySwiper"
                 >
                     {
-                        PopularFood.map(items => <SwiperSlide key={items.Id}>
+                        recommendedFood.map(items => <SwiperSlide key={items.Id}>
                             <div className='mb-6 px-3 md:px-0 cursor-pointer active:cursor-grabbing'>
                                 <img className='h-52 md:h-72 w-full  rounded-xl shadow-bottom-right object-cover ' src={items?.ImageUrl} alt={items?.Name} />
                                 <p className='text-center text-lg text-gray-600 font-medium py-3'>{items?.Name}</p>
@@ -91,4 +91,4 @@ const PopularItems = () => {
     );
 };
 
-export default PopularItems;
+export default Recommended;
