@@ -22,7 +22,7 @@ const Recommended = () => {
 
 
     useEffect(() => {
-        fetch("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
+        fetch("/data.json")
             .then(res => res.json())
             .then(data => setRecommendedFood(data.Items.filter((RecommendedFood) => RecommendedFood.IsRecommended)))
 
