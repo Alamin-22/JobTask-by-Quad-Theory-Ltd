@@ -34,7 +34,14 @@ const PopularItems = () => {
             <div className='my-24' >
                 <div className='my-5 px-3 flex items-center justify-between'>
                     <p className='text-2xl font-medium'>Popular</p>
-                    <p className='text-xl text-orange-500 font-medium hover:text-orange-600 cursor-pointer'>AddMore </p>
+                    <div className='flex gap-3'>
+                        <p className='text-xl text-orange-500 font-medium hover:text-orange-600 cursor-pointer'>AddMore</p>
+                        <div className='text-xl space-x-2'>
+                            <button id='previousSlid' className='hover:text-orange-500'>❮</button>
+                            <button id='nextSlid' className='hover:text-orange-500'>❯</button>
+                        </div>
+
+                    </div>
                 </div>
                 <Swiper
                     navigation={true}
@@ -67,6 +74,7 @@ const PopularItems = () => {
                                 <p className='text-center text-lg text-gray-600 font-medium py-3'>{items?.Name}</p>
                             </div>
                         </SwiperSlide>)
+
                     }
 
 
